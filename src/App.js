@@ -15,7 +15,7 @@ import { NotFoundPage } from './pages/NotFoundPage';
 
 function App() {
 
-  const isAuthChecked=useSelector(selectIAsAuthChecked)
+  const isAuthChecked=useSelector(selectIsAuthChecked)
   const loggedInUser=useSelector(selectLoggedInUser)
 
 
@@ -28,7 +28,13 @@ function App() {
       <>
         <Route path='/signup' element={<SignupPage/>}/>
         <Route path='/login' element={<LoginPage/>}/>
-        <Route path='/verify-otp' element={<OtpVerificationPage/>}/>
+        <Route
+  path="/verify-otp"
+  element={
+    loggedInUser ? <OtpVerificationPage /> : <Navigate to="/login" />
+  }
+/>
+
         <Route path='/forgot-password' element={<ForgotPasswordPage/>}/>
         <Route path='/reset-password/:userId/:passwordResetToken' element={<ResetPasswordPage/>}/>
         <Route exact path='/logout' element={<Protected><Logout/></Protected>}/>
@@ -47,7 +53,8 @@ function App() {
           ):(
             // user routes
             <>
-            <Route path='/' element={<Protected><HomePage/></Protected>}/>
+           <Route path='/' element={<Protected><HomePage/></Protected>}/>
+
             <Route path='/cart' element={<Protected><CartPage/></Protected>}/>
             <Route path='/profile' element={<Protected><UserProfilePage/></Protected>}/>
             <Route path='/checkout' element={<Protected><CheckoutPage/></Protected>}/>
@@ -68,4 +75,6 @@ function App() {
   return isAuthChecked ? <RouterProvider router={routes}/> : "";
 }
 
-export default App;
+export default App;   
+
+i am getting problem in project that is , i need login page to be displayed first not otp page in versel
