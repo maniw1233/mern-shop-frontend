@@ -30,7 +30,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-      "build" : "npm install react@18.3.1 react-dom@18.3.1"
+      "build" : "npm install react@18.3.1 react-dom@18.3.1",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
       "predeploy": "npm run build -r https://maniw1233.github.io/mern-shop-frontend",
