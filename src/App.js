@@ -31,10 +31,10 @@ function App() {
         <Route
   path="/verify-otp"
   element={
-    loggedInUser ? <OtpVerificationPage /> : <Navigate to="/login" />
+    loggedInUser ?<Navigate to="/login" /> : <OtpVerificationPage />
   }
 />
-
+ 
         <Route path='/forgot-password' element={<ForgotPasswordPage/>}/>
         <Route path='/reset-password/:userId/:passwordResetToken' element={<ResetPasswordPage/>}/>
         <Route exact path='/logout' element={<Protected><Logout/></Protected>}/>
