@@ -48,16 +48,7 @@ function App() {
         <Route path='/reset-password/:userId/:passwordResetToken' element={<ResetPasswordPage />} />
 
         {/* OTP only if not verified */}
-        <Route
-          path="/verify-otp"
-          element={
-            loggedInUser && !loggedInUser.isVerified ? (
-              <OtpVerificationPage />
-            ) : (
-              <Navigate to="/" />
-            )
-          }
-        />
+          <Route path='/verify-otp' element={<OtpVerificationPage/>}/>
 
         {/* Protected Routes */}
         <Route path='/logout' element={<Protected><Logout /></Protected>} />
